@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Students - School Management{% endblock %}
+
+{% block content %}
+<h1>Students</h1>
+<a href="{% url 'student_create' %}" class="btn">Add Student</a>
+<ul>
+    {% for student in students %}
+        <li>
+            <span>{{ student.firstname }} {{ student.lastname }}</span>
+            <div class="actions">
+                <a href="{% url 'student_update' student.id %}" class="edit-btn">Edit</a>
+                <a href="{% url 'student_delete' student.id %}" class="delete-btn">Delete</a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %} 

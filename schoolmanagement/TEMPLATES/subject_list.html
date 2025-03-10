@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Subjects - School Management{% endblock %}
+
+{% block content %}
+<h1>Subjects</h1>
+<a href="{% url 'subject_create' %}" class="btn">Add Subject</a>
+<ul>
+    {% for subject in subjects %}
+        <li>
+            <span>{{ subject.name }}</span>
+            <div class="actions">
+                <a href="{% url 'subject_update' subject.id %}" class="edit-btn">Edit</a>
+                <a href="{% url 'subject_delete' subject.id %}" class="delete-btn">Delete</a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %} 

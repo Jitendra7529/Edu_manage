@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if subject.id %}Edit Subject{% else %}Add Subject{% endif %} - School Management{% endblock %}
+
+{% block content %}
+<h1>{% if subject.id %}Edit Subject: {{ subject.name }}{% else %}Add Subject{% endif %}</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="name">Subject Name:</label>
+    <input type="text" name="name" id="name" value="{{ subject.name|default:'' }}">
+    <button type="submit">Save</button>
+</form>
+<br>
+<a href="{% url 'subject_list' %}" class="btn">Back to Subjects</a>
+{% endblock %} 

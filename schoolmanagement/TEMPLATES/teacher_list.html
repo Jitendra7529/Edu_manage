@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Teachers - School Management{% endblock %}
+
+{% block content %}
+<h1>Teachers</h1>
+<a href="{% url 'teacher_create' %}" class="btn">Add Teacher</a>
+<ul>
+    {% for teacher in teachers %}
+        <li>
+            <span>{{ teacher.firstname }} {{ teacher.lastname }}</span>
+            <div class="actions">
+                <a href="{% url 'teacher_update' teacher.id %}" class="edit-btn">Edit</a>
+                <a href="{% url 'teacher_delete' teacher.id %}" class="delete-btn">Delete</a>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

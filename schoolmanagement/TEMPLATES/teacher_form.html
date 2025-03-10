@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if teacher.id %}Edit Teacher{% else %}Add Teacher{% endif %} - School Management{% endblock %}
+
+{% block content %}
+<h1>{% if teacher.id %}Edit Teacher: {{ teacher.firstname }} {{ teacher.lastname }}{% else %}Add Teacher{% endif %}</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="firstname">First Name:</label>
+    <input type="text" name="firstname" id="firstname" value="{{ teacher.firstname|default:'' }}">
+
+    <label for="lastname">Last Name:</label>
+    <input type="text" name="lastname" id="lastname" value="{{ teacher.lastname|default:'' }}">
+    <button type="submit">Save</button>
+</form>
+<br>
+<a href="{% url 'teacher_list' %}" class="btn">Back to Teachers</a>
+{% endblock %}

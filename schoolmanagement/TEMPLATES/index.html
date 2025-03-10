@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Edu Manage</h1>
+    <p>Welcome to Edu Manage. Use the links below to navigate:</p>
+    
+    <div class="menu">
+        <a href="{% url 'teacher_list' %}" class="btn">Manage Teachers</a>
+        <a href="{% url 'student_list' %}" class="btn">Manage Students</a>
+        <a href="{% url 'subject_list' %}" class="btn">Manage Subjects</a>
+    </div>
+{% endblock %} 

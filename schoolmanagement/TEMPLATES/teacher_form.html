@@ -7,10 +7,10 @@
 <form method="POST">
     {% csrf_token %}
     <label for="firstname">First Name:</label>
-    <input type="text" name="firstname" id="firstname" value="{{ teacher.firstname|default:'' }}">
+    <input type="text" name="firstname" id="firstname" value="{{ teacher.firstname|default:'' }}"required>
 
     <label for="lastname">Last Name:</label>
-    <input type="text" name="lastname" id="lastname" value="{{ teacher.lastname|default:'' }}">
+    <input type="text" name="lastname" id="lastname" value="{{ teacher.lastname|default:'' }}"required>
     <button type="submit">Save</button>
 </form>
 <br>
